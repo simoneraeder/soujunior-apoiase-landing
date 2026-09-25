@@ -1,0 +1,1282 @@
+/* ============================================================
+   SECTION / LAYOUT
+   ============================================================ */
+.section {
+  padding: clamp(2.5rem, 7vw, 6.5rem) 0;
+  position: relative;
+}
+.section :global(#iniciativas) {
+  scroll-margin-top: 6rem;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 480px) {
+  .wrap {
+    padding: 0 1.4rem;
+  }
+}
+@media (min-width: 768px) {
+  .wrap {
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .wrap {
+    padding: 0 3rem;
+  }
+}
+
+.secHeadBare {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.85rem;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.label::before {
+  content: "";
+  width: 1.6rem;
+  height: 1.5px;
+  background: var(--blue);
+}
+
+/* ============================================================
+   PROBLEM STATEMENT
+   ============================================================ */
+.problemStatement {
+  font-family: var(--display);
+  font-size: clamp(1rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 44rem;
+  margin-bottom: clamp(1.5rem, 4.5vw, 3.5rem);
+}
+.hl {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ============================================================
+   LABS BLOCK / STICKER / DOODLES
+   ============================================================ */
+.labsBlock {
+  margin-top: 1.25rem;
+  position: relative;
+}
+
+.labsDoodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  display: none;
+}
+@media (min-width: 768px) {
+  .labsDoodle {
+    display: block;
+  }
+}
+
+.doodleStar {
+  font-size: 1.3rem;
+  animation: doodleSpin 14s linear infinite;
+}
+.s1 {
+  top: 4%;
+  left: 2%;
+  color: var(--yellow);
+  animation-duration: 12s;
+}
+.s2 {
+  top: 8%;
+  right: 4%;
+  color: var(--pink);
+  animation-duration: 16s;
+  animation-direction: reverse;
+}
+.s3 {
+  bottom: 12%;
+  left: 1%;
+  color: var(--blue);
+  animation-duration: 18s;
+}
+.s4 {
+  bottom: 8%;
+  right: 2%;
+  color: var(--purple-3);
+  animation-duration: 13s;
+  animation-direction: reverse;
+}
+
+@keyframes doodleSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.labsResponse {
+  max-width: 52rem;
+  position: relative;
+  z-index: 3;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  transform: rotate(-2.4deg);
+  box-shadow: 0 10px 24px -10px rgba(27, 59, 255, 0.7);
+  white-space: nowrap;
+}
+.dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CARROSSEL
+   ============================================================ */
+.carouselWrapper {
+  position: relative;
+  padding: 0 2.2rem;
+  perspective: 1400px;
+}
+@media (min-width: 768px) {
+  .carouselWrapper {
+    padding: 0 3.5rem;
+  }
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.4s var(--ease);
+  box-shadow: 0 10px 24px -10px rgba(10, 20, 40, 0.35);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .carouselArrow {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+.carouselArrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: scale(0);
+  transition: transform 0.5s var(--ease);
+  z-index: -1;
+}
+.carouselArrow:hover {
+  color: var(--paper);
+  transform: translateY(-50%) scale(1.1);
+}
+.carouselArrow:hover::before {
+  transform: scale(1);
+}
+.carouselArrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+.carouselArrow svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  transition: transform 0.4s var(--ease);
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .carouselArrow svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+
+.deckStage {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  cursor: grab;
+  user-select: none;
+  transform-style: preserve-3d;
+}
+@media (min-width: 480px) {
+  .deckStage {
+    min-height: 380px;
+  }
+}
+@media (min-width: 768px) {
+  .deckStage {
+    min-height: 480px;
+  }
+}
+@media (min-width: 1024px) {
+  .deckStage {
+    min-height: 520px;
+  }
+}
+.deckStage:active {
+  cursor: grabbing;
+}
+
+.deckCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 0.2rem;
+  transform-style: preserve-3d;
+  transition:
+    transform 1s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.8s var(--ease),
+    filter 0.8s var(--ease);
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+}
+.deckCard.isActive {
+  position: relative;
+  pointer-events: auto;
+}
+
+/* animações de entrada dos elementos do slide ativo */
+.deckCard .slideHead,
+.deckCard .slideTitle,
+.deckCard .slideSub,
+.deckCard .problemBlock,
+.deckCard .talkBlock,
+.deckCard .problemContent,
+.deckCard .problemVisual,
+.deckCard .talkContent,
+.deckCard .talkCards,
+.deckCard .talkCard,
+.deckCard .problemCta,
+.deckCard .talkCta {
+  opacity: 0;
+}
+
+.deckCard.isActive .slideHead {
+  animation: popIn 0.7s var(--ease-bounce) 0.15s both;
+}
+.deckCard.isActive .slideTitle {
+  animation: popIn 0.8s var(--ease-bounce) 0.22s both;
+}
+.deckCard.isActive .slideSub {
+  animation: popIn 0.7s var(--ease) 0.32s both;
+}
+.deckCard.isActive .problemBlock,
+.deckCard.isActive .talkBlock {
+  animation: popIn 0.8s var(--ease-bounce) 0.4s both;
+}
+.deckCard.isActive .problemContent,
+.deckCard.isActive .talkContent {
+  animation: slideUpIn 0.8s var(--ease) 0.55s both;
+}
+.deckCard.isActive .problemVisual,
+.deckCard.isActive .talkCards {
+  animation: slideUpIn 0.8s var(--ease) 0.6s both;
+}
+.deckCard.isActive .talkCard:nth-child(1) {
+  animation: slideUpIn 0.5s var(--ease) 0.7s both;
+}
+.deckCard.isActive .talkCard:nth-child(2) {
+  animation: slideUpIn 0.5s var(--ease) 0.82s both;
+}
+.deckCard.isActive .talkCard:nth-child(3) {
+  animation: slideUpIn 0.5s var(--ease) 0.94s both;
+}
+.deckCard.isActive .problemCta,
+.deckCard.isActive .talkCta {
+  animation: popIn 0.6s var(--ease-bounce) 0.9s both;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dots */
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.carouselDot {
+  position: relative;
+  width: 2rem;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: var(--line-2);
+  cursor: pointer;
+  transition:
+    background-color 0.4s var(--ease),
+    width 0.4s var(--ease),
+    transform 0.35s var(--ease-bounce);
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+.carouselDot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-2));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.carouselDot.active {
+  background: var(--blue-soft);
+  width: 3.5rem;
+}
+.carouselDot.active::after {
+  animation: dotFill 7s linear forwards;
+}
+.carouselDot.paused::after {
+  animation-play-state: paused;
+}
+@keyframes dotFill {
+  to {
+    transform: scaleX(1);
+  }
+}
+.carouselDot:hover:not(.active) {
+  background: var(--ink-3);
+  transform: scaleY(1.4);
+}
+
+/* ============================================================
+   SLIDE (head/título/sub)
+   ============================================================ */
+.slideHead {
+  text-align: center;
+  max-width: 52rem;
+  margin: 0 auto 1.25rem;
+}
+
+.slideTitle {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+}
+
+.mark {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+.mark::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: 0.06em;
+  height: 0.38em;
+  border-radius: 4px;
+  z-index: -1;
+  transform-origin: left;
+  animation: markerIn 1s var(--ease) 0.5s both;
+  opacity: 0.85;
+}
+.slideTitleLabs .mark::after {
+  background: var(--yellow);
+}
+.slideTitleTalk .mark::after {
+  background: var(--pink-soft);
+}
+
+.slideIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.5rem, 4vw, 3.2rem);
+  height: clamp(1.5rem, 4vw, 3.2rem);
+  flex-shrink: 0;
+  margin-left: 0.05em;
+  transition: transform 0.5s var(--ease-bounce);
+}
+.slideIcon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 2.2;
+  animation: iconBob 3.2s ease-in-out infinite;
+}
+.slideTitleLabs .slideIcon {
+  color: var(--blue);
+}
+.slideTitleTalk .slideIcon {
+  color: var(--purple);
+}
+.slideIcon:hover {
+  transform: rotate(-15deg) scale(1.12);
+}
+
+@keyframes iconBob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-4px) rotate(5deg);
+  }
+}
+
+.slideSub {
+  font-family: var(--sans);
+  font-size: clamp(0.82rem, 1.3vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  letter-spacing: -0.01em;
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.slideSub strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.accent {
+  color: var(--blue);
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+.accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.05em;
+  height: 2px;
+  background: var(--blue);
+  opacity: 0.35;
+  border-radius: 2px;
+}
+.accentPurple {
+  color: var(--purple);
+}
+.accentPurple::after {
+  background: var(--purple);
+}
+
+/* ============================================================
+   PROBLEM BLOCK (Labs)
+   ============================================================ */
+.problemBlock {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  background: var(--paper-2);
+  border: 2.5px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 6px 8px 0 rgba(10, 20, 40, 0.18);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .problemBlock {
+    padding: 2rem 1.75rem;
+    border-radius: 28px;
+    border-width: 3px;
+    box-shadow: 8px 10px 0 rgba(10, 20, 40, 0.18);
+  }
+}
+@media (min-width: 880px) {
+  .problemBlock {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 2.2rem;
+    padding: 2.5rem;
+  }
+}
+.problemBlock::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 70%;
+  aspect-ratio: 1;
+  background: radial-gradient(
+    circle,
+    rgba(255, 216, 75, 0.35),
+    transparent 65%
+  );
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.problemContent {
+  position: relative;
+  z-index: 1;
+}
+
+.problemText {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1rem, 2.6vw, 1.9rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 0.7rem;
+}
+.em {
+  color: var(--blue);
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+.em::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 0.05em;
+  height: 0.4em;
+  background: var(--yellow);
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.problemSub {
+  font-family: var(--sans);
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 36rem;
+  margin-bottom: 1.2rem;
+}
+
+.problemImage {
+  object-fit: cover; /* garante que a imagem não distorça */
+  border-radius: 12px; /* se já não vinha do problemVisual */
+}
+.problemVisual {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2.5px solid var(--ink);
+  box-shadow: 6px 8px 0 rgba(10, 20, 40, 0.2);
+  transform: rotate(2deg);
+  transition: transform 0.6s var(--ease);
+}
+@media (min-width: 768px) {
+  .problemVisual {
+    border-radius: 18px;
+    border-width: 3px;
+    box-shadow: 8px 10px 0 rgba(10, 20, 40, 0.2);
+  }
+}
+.problemVisual:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.problemVisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.problemVisual:hover img {
+  transform: scale(1.08);
+}
+
+.tag {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  box-shadow: 3px 4px 0 rgba(10, 20, 40, 0.2);
+}
+
+.problemCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: -0.015em;
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 6px 0 rgba(10, 20, 40, 0.2);
+  transform: rotate(-2deg);
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .problemCta {
+    padding: 1rem 1.75rem;
+    font-size: 0.92rem;
+    border-width: 3px;
+    box-shadow: 6px 8px 0 rgba(10, 20, 40, 0.2);
+  }
+}
+.problemCta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 75%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease);
+}
+.problemCta:hover {
+  transform: rotate(0deg) scale(1.05) translateY(-3px);
+  box-shadow: 10px 14px 0 rgba(10, 20, 40, 0.28);
+  background: var(--ink);
+}
+.problemCta:hover::before {
+  transform: translateX(130%);
+}
+.problemCta svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  transition: transform 0.4s var(--ease);
+}
+.problemCta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   TALK BLOCK
+   ============================================================ */
+.talkBlock {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+  padding: 1.2rem 1rem;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 6px 8px 0 rgba(124, 58, 237, 0.4);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .talkBlock {
+    padding: 2rem 1.75rem;
+    border-radius: 28px;
+    border-width: 3px;
+    box-shadow: 8px 10px 0 rgba(124, 58, 237, 0.4);
+  }
+}
+@media (min-width: 880px) {
+  .talkBlock {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.2rem;
+    padding: 2.5rem;
+  }
+}
+.talkBlock::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 70%;
+  aspect-ratio: 1;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.35),
+    transparent 65%
+  );
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+.talkBlock::after {
+  content: "";
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-image:
+    linear-gradient(45deg, rgba(255, 122, 156, 0.2) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 122, 156, 0.2) 25%, transparent 25%);
+  background-size: 10px 10px;
+  border-radius: 8px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.talkContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.talkTitle {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1rem, 2.6vw, 1.9rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 0.7rem;
+}
+.talkTitle .em {
+  color: var(--purple);
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+.talkTitle .em::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 0.05em;
+  height: 0.4em;
+  background: var(--pink-soft);
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.talkSub {
+  font-family: var(--sans);
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 36rem;
+  margin-bottom: 1.2rem;
+}
+
+.talkCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: -0.015em;
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 6px 0 rgba(255, 122, 156, 0.55);
+  transform: rotate(-2deg);
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+  align-self: flex-start;
+}
+@media (min-width: 768px) {
+  .talkCta {
+    padding: 1rem 1.75rem;
+    font-size: 0.92rem;
+    border-width: 3px;
+    box-shadow: 6px 8px 0 rgba(255, 122, 156, 0.55);
+  }
+}
+.talkCta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 75%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease);
+}
+.talkCta:hover {
+  transform: rotate(0deg) scale(1.05) translateY(-3px);
+  box-shadow: 10px 14px 0 rgba(255, 122, 156, 0.65);
+  background: var(--purple);
+  color: #fff;
+}
+.talkCta:hover::before {
+  transform: translateX(130%);
+}
+.talkCta svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  transition: transform 0.4s var(--ease);
+}
+.talkCta:hover svg {
+  transform: translateX(4px);
+}
+
+.talkCards {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+.talkCard {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--paper-2);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 4px 5px 0 rgba(10, 20, 40, 0.15);
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+@media (min-width: 768px) {
+  .talkCard {
+    border-width: 2.5px;
+    border-radius: 16px;
+    box-shadow: 5px 6px 0 rgba(10, 20, 40, 0.15);
+    padding: 0.9rem 1rem;
+  }
+}
+.talkCard:nth-child(1) {
+  transform: rotate(-1.5deg);
+}
+.talkCard:nth-child(2) {
+  transform: rotate(1deg);
+}
+.talkCard:nth-child(3) {
+  transform: rotate(-1deg);
+}
+.talkCard:hover {
+  transform: rotate(0) translateX(4px);
+  box-shadow: 8px 10px 0 rgba(10, 20, 40, 0.2);
+}
+
+.talkCardIcon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  background: var(--pink);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  box-shadow: 3px 4px 0 rgba(10, 20, 40, 0.15);
+  transition: transform 0.4s var(--ease);
+}
+@media (min-width: 768px) {
+  .talkCardIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 12px;
+    border-width: 2.5px;
+  }
+}
+.talkCard:hover .talkCardIcon {
+  transform: rotate(-8deg) scale(1.05);
+}
+.talkCardIcon svg {
+  width: 1rem;
+  height: 1rem;
+}
+@media (min-width: 768px) {
+  .talkCardIcon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+}
+
+.talkCardBody {
+  flex: 1;
+  min-width: 0;
+}
+.talkCardTitle {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .talkCardTitle {
+    font-size: 0.92rem;
+  }
+}
+.talkCardDesc {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+  letter-spacing: -0.003em;
+}
+@media (min-width: 768px) {
+  .talkCardDesc {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+}
+
+.talkStamp {
+  position: absolute;
+  bottom: -0.75rem;
+  right: 1rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--purple);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+@media (min-width: 768px) {
+  .talkStamp {
+    font-size: 4.5rem;
+  }
+}
+@media (max-width: 880px) {
+  .talkStamp {
+    font-size: 2.2rem;
+    bottom: -0.4rem;
+  }
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.statsInline {
+  margin-top: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+@media (min-width: 480px) {
+  .statsGrid {
+    gap: 0.9rem;
+  }
+}
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+.statCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1rem 0.9rem 0.9rem;
+  background: var(--paper-2);
+  border: 2.5px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 5px 6px 0 rgba(10, 20, 40, 0.16);
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    background-color 0.3s var(--ease);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .statCard {
+    padding: 1.6rem 1.4rem 1.5rem;
+    border-radius: 20px;
+    border-width: 3px;
+    box-shadow: 6px 8px 0 rgba(10, 20, 40, 0.16);
+  }
+}
+.statCard:nth-child(1) {
+  transform: rotate(-1.4deg);
+}
+.statCard:nth-child(2) {
+  transform: rotate(1deg);
+}
+.statCard:nth-child(3) {
+  transform: rotate(-1.1deg);
+}
+.statCard:nth-child(4) {
+  transform: rotate(1.4deg);
+}
+.statCard:hover {
+  transform: rotate(0) translateY(-5px) scale(1.02);
+  box-shadow: 10px 12px 0 rgba(10, 20, 40, 0.24);
+}
+.statCard:nth-child(1):hover {
+  background: var(--blue-pale);
+}
+.statCard:nth-child(2):hover {
+  background: var(--purple-soft);
+}
+.statCard:nth-child(3):hover {
+  background: var(--pink-light);
+}
+.statCard:nth-child(4):hover {
+  background: #fff3c9;
+}
+
+.statCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+.statKicker {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+@media (min-width: 768px) {
+  .statKicker {
+    font-size: 0.6rem;
+  }
+}
+
+.statDeco {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 2px 3px 0 rgba(10, 20, 40, 0.18);
+  transition: transform 0.35s var(--ease);
+}
+@media (min-width: 768px) {
+  .statDeco {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.statCard:hover .statDeco {
+  transform: rotate(-15deg) scale(1.1);
+}
+.statDeco svg {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+@media (min-width: 768px) {
+  .statDeco svg {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+.statCard:nth-child(1) .statDeco {
+  background: var(--blue);
+  color: #fff;
+}
+.statCard:nth-child(2) .statDeco {
+  background: var(--purple-3);
+  color: #fff;
+}
+.statCard:nth-child(3) .statDeco {
+  background: var(--pink);
+  color: var(--ink);
+}
+.statCard:nth-child(4) .statDeco {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.statCardNum {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4.5vw, 3rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 0.05em;
+}
+.pre {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.statCardLabel {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+  letter-spacing: -0.005em;
+  max-width: 18rem;
+}
+@media (min-width: 768px) {
+  .statCardLabel {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+}
+
+.statCard::after {
+  content: "";
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.85rem;
+  width: 1.2rem;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0.18;
+  border-radius: 99px;
+  transition:
+    width 0.35s var(--ease),
+    opacity 0.3s,
+    background-color 0.3s;
+}
+@media (min-width: 768px) {
+  .statCard::after {
+    width: 1.6rem;
+    bottom: 0.7rem;
+    right: 1rem;
+  }
+}
+.statCard:hover::after {
+  width: 2.8rem;
+  opacity: 0.4;
+}
+
+/* ============================================================
+   ACESSIBILIDADE
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .labsDoodle,
+  .slideIcon svg,
+  .carouselDot.active::after {
+    animation: none !important;
+  }
+  .deckCard,
+  .deckCard.isActive .slideHead,
+  .deckCard.isActive .slideTitle,
+  .deckCard.isActive .slideSub,
+  .deckCard.isActive .problemBlock,
+  .deckCard.isActive .talkBlock,
+  .deckCard.isActive .problemContent,
+  .deckCard.isActive .problemVisual,
+  .deckCard.isActive .talkContent,
+  .deckCard.isActive .talkCards,
+  .deckCard.isActive .talkCard,
+  .deckCard.isActive .problemCta,
+  .deckCard.isActive .talkCta {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

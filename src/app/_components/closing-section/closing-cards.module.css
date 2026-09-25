@@ -1,0 +1,26 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  position: relative;
+  z-index: 4;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+  }
+}
+
+/* Wrapper do Reveal precisa esticar para que os cards tenham a mesma altura */
+.revealWrap {
+  display: flex;
+  height: 100%;
+}
+
+.revealWrap > a {
+  flex: 1;
+  width: 100%;
+}

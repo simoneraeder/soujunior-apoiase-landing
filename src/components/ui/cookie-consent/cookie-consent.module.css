@@ -1,0 +1,204 @@
+.banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  width: min(calc(100vw - 32px), 400px);
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow:
+    0 20px 50px rgba(10, 20, 40, 0.18),
+    0 6px 18px rgba(10, 20, 40, 0.08);
+  animation: bannerEnter 0.4s var(--ease-bounce);
+}
+
+.icon {
+  display: flex;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: var(--blue);
+  box-shadow: 0 6px 16px rgba(27, 59, 255, 0.24);
+}
+
+.iconSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.eyebrow {
+  margin-bottom: 4px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.description {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(27, 59, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.buttonPrimary {
+  color: #ffffff;
+  background: var(--blue);
+  box-shadow: 0 6px 14px rgba(27, 59, 255, 0.24);
+}
+
+.buttonPrimary:hover {
+  background: var(--blue-hover);
+  box-shadow: 0 8px 18px rgba(27, 59, 255, 0.32);
+}
+
+.buttonSecondary {
+  color: var(--ink);
+  border-color: var(--line-2);
+  background: transparent;
+}
+
+.buttonSecondary:hover {
+  border-color: var(--ink);
+  background: rgba(10, 20, 40, 0.05);
+}
+
+.buttonArrow {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 0;
+  transition: transform 0.2s ease;
+}
+
+.buttonPrimary:hover .buttonArrow {
+  transform: translateX(3px);
+}
+
+@keyframes bannerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .banner {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    padding: 16px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+
+  .icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .iconSvg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .actions {
+    margin-top: 14px;
+  }
+
+  .button {
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 12.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .button,
+  .buttonArrow {
+    animation: none;
+    transition: none;
+  }
+}

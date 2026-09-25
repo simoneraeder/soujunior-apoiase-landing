@@ -1,0 +1,267 @@
+.brand3d {
+  display: inline-flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+  padding: 0 0.04em;
+  perspective: 800px;
+  perspective-origin: center 70%;
+  transform-style: preserve-3d;
+  height: 1.2em;
+}
+
+.letter {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform-origin: center bottom;
+  will-change: transform;
+  animation: letterJump 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  margin: 0 0.008em;
+}
+
+.spinner {
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  animation: letterSpin 12s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: 1;
+  backface-visibility: hidden;
+  user-select: none;
+  display: grid;
+  place-items: center;
+}
+
+.faceFront {
+  position: relative;
+  color: #ffd84b;
+  text-shadow: 0 0 10px rgba(255, 216, 75, 0.45);
+  z-index: 10;
+  animation: frontGlow 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.faceSlice {
+  z-index: 9;
+}
+
+.faceBack {
+  z-index: 8;
+}
+
+.letter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.4),
+    transparent 75%
+  );
+  filter: blur(2px);
+  z-index: -1;
+  animation: shadowPulse 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-origin: center center;
+}
+
+/* Delays staggered por letra — spinner */
+.brand3d .letter:nth-child(1) .spinner {
+  animation-delay: 0s;
+}
+.brand3d .letter:nth-child(2) .spinner {
+  animation-delay: -0.3s;
+}
+.brand3d .letter:nth-child(3) .spinner {
+  animation-delay: -0.6s;
+}
+.brand3d .letter:nth-child(4) .spinner {
+  animation-delay: -0.9s;
+}
+.brand3d .letter:nth-child(5) .spinner {
+  animation-delay: -1.2s;
+}
+.brand3d .letter:nth-child(6) .spinner {
+  animation-delay: -1.5s;
+}
+.brand3d .letter:nth-child(7) .spinner {
+  animation-delay: -1.8s;
+}
+.brand3d .letter:nth-child(8) .spinner {
+  animation-delay: -2.1s;
+}
+.brand3d .letter:nth-child(9) .spinner {
+  animation-delay: -2.4s;
+}
+
+/* Delays staggered por letra — letterJump */
+.brand3d .letter:nth-child(1) {
+  animation-delay: 0s;
+}
+.brand3d .letter:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.brand3d .letter:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.brand3d .letter:nth-child(4) {
+  animation-delay: 0.45s;
+}
+.brand3d .letter:nth-child(5) {
+  animation-delay: 0.6s;
+}
+.brand3d .letter:nth-child(6) {
+  animation-delay: 0.75s;
+}
+.brand3d .letter:nth-child(7) {
+  animation-delay: 0.9s;
+}
+.brand3d .letter:nth-child(8) {
+  animation-delay: 1.05s;
+}
+.brand3d .letter:nth-child(9) {
+  animation-delay: 1.2s;
+}
+
+/* Delays staggered por letra — frontGlow */
+.brand3d .letter:nth-child(1) .faceFront {
+  animation-delay: 0s;
+}
+.brand3d .letter:nth-child(2) .faceFront {
+  animation-delay: 0.15s;
+}
+.brand3d .letter:nth-child(3) .faceFront {
+  animation-delay: 0.3s;
+}
+.brand3d .letter:nth-child(4) .faceFront {
+  animation-delay: 0.45s;
+}
+.brand3d .letter:nth-child(5) .faceFront {
+  animation-delay: 0.6s;
+}
+.brand3d .letter:nth-child(6) .faceFront {
+  animation-delay: 0.75s;
+}
+.brand3d .letter:nth-child(7) .faceFront {
+  animation-delay: 0.9s;
+}
+.brand3d .letter:nth-child(8) .faceFront {
+  animation-delay: 1.05s;
+}
+.brand3d .letter:nth-child(9) .faceFront {
+  animation-delay: 1.2s;
+}
+
+/* Delays staggered por letra — shadowPulse */
+.brand3d .letter:nth-child(1)::after {
+  animation-delay: 0s;
+}
+.brand3d .letter:nth-child(2)::after {
+  animation-delay: 0.15s;
+}
+.brand3d .letter:nth-child(3)::after {
+  animation-delay: 0.3s;
+}
+.brand3d .letter:nth-child(4)::after {
+  animation-delay: 0.45s;
+}
+.brand3d .letter:nth-child(5)::after {
+  animation-delay: 0.6s;
+}
+.brand3d .letter:nth-child(6)::after {
+  animation-delay: 0.75s;
+}
+.brand3d .letter:nth-child(7)::after {
+  animation-delay: 0.9s;
+}
+.brand3d .letter:nth-child(8)::after {
+  animation-delay: 1.05s;
+}
+.brand3d .letter:nth-child(9)::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes letterJump {
+  0%,
+  62%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  22% {
+    transform: translateY(-12px) rotateX(-22deg);
+  }
+  38% {
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes letterSpin {
+  0%,
+  100% {
+    transform: rotateY(-15deg);
+  }
+  50% {
+    transform: rotateY(15deg);
+  }
+}
+
+@keyframes frontGlow {
+  0%,
+  62%,
+  100% {
+    color: #ffd84b;
+    filter: brightness(1);
+    text-shadow: 0 0 10px rgba(255, 216, 75, 0.45);
+  }
+  22% {
+    color: #ffffff;
+    filter: brightness(1.2);
+    text-shadow:
+      0 0 18px rgba(255, 255, 255, 0.8),
+      0 0 28px rgba(255, 216, 75, 0.6);
+  }
+  38% {
+    color: #ffd84b;
+    filter: brightness(1);
+    text-shadow: 0 0 10px rgba(255, 216, 75, 0.45);
+  }
+}
+
+@keyframes shadowPulse {
+  0%,
+  62%,
+  100% {
+    opacity: 0.45;
+    transform: scaleX(1);
+    filter: blur(2px);
+  }
+  22% {
+    opacity: 0.15;
+    transform: scaleX(0.7);
+    filter: blur(4px);
+  }
+  38% {
+    opacity: 0.45;
+    transform: scaleX(1);
+    filter: blur(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter,
+  .spinner,
+  .faceFront,
+  .letter::after {
+    animation: none;
+  }
+}

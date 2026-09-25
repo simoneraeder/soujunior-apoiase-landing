@@ -1,0 +1,79 @@
+.faq {
+  max-width: 58rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.faqHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.faqHeadingTitle {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 2.2vw, 1.7rem);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faqEmoji {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 4px 0 rgba(10, 20, 40, 0.18);
+  color: var(--ink);
+  animation: wiggle 2.6s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .faqEmoji {
+    width: 2rem;
+    height: 2rem;
+    border-width: 2.5px;
+  }
+}
+
+.faqEmojiSvg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .faqEmojiSvg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.faqHint {
+  font-family: var(--hand);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue);
+  transform: rotate(-3deg);
+}
+
+@media (min-width: 768px) {
+  .faqHint {
+    font-size: 1.3rem;
+  }
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}

@@ -1,0 +1,35 @@
+.aboutFacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+  gap: 0;
+  margin-top: 0.3rem;
+}
+
+.aboutFact {
+  padding: 0.85rem 0.6rem 0.85rem 0;
+  transition: padding-left 0.4s var(--ease);
+}
+
+.aboutFact:hover {
+  padding-left: 0.5rem;
+}
+
+.aboutFactKey {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.35rem;
+}
+
+.aboutFactValue {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-inline-start: 0;
+}

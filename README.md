@@ -1,260 +1,229 @@
 # SouJunior Apoia.se Landing
 
-Landing page do projeto do Hackathon SouJunior para captação de apoiadores via Apoia.se.
+Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores via [Apoia.se](https://apoia.se/), apresentando a missão da comunidade, seu impacto social e chamadas para ação que direcionam o visitante à doação.
 
-## Visão geral
+**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing \
+**Deploy:** https://soujunior-apoiase-landing.vercel.app/
 
-Este projeto tem como objetivo criar uma página de apresentação para divulgar a iniciativa da SouJunior, apresentar o impacto social da comunidade e incentivar a doação por meio de links e chamadas para ação para o Apoia.se.
+---
 
-A estrutura atual foi iniciada com Next.js e utiliza o App Router do framework para servir a página principal e os estilos da interface.
+## 📋 Sumário
 
-## Objetivo do projeto
+- [Sobre o projeto](#sobre-o-projeto)
+- [Vídeo do projeto](#vídeo-do-projeto)
+- [Escopo funcional](#escopo-funcional)
+- [Stack tecnológica](#stack-tecnológica)
+- [Pré-requisitos](#pré-requisitos)
+- [Como rodar o projeto](#como-rodar-o-projeto)
+- [Scripts disponíveis](#scripts-disponíveis)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Padrões de código](#padrões-de-código)
+- [Boas práticas](#boas-práticas)
+- [Testes e QA](#testes-e-qa)
+- [Contribuição](#contribuição)
+- [Equipe](#equipe)
+- [Licença](#licença)
+
+---
+
+## Sobre o projeto
+
+O objetivo da landing page é:
 
 - divulgar o programa e a missão da SouJunior;
-- apresentar o impacto da doação;
-- criar uma narrativa clara para conversão de visitantes em apoiadores;
-- direcionar os usuários para a plataforma oficial do Apoia.se;
-- preparar a base para uma landing page responsiva e pronta para pré-lançamento.
+- apresentar o impacto gerado pelas doações;
+- construir uma narrativa clara de conversão de visitante em apoiador;
+- direcionar os usuários para a página oficial da campanha no Apoia.se;
+- servir de base para uma página responsiva e pronta para pré-lançamento.
+
+**Métrica de sucesso:** taxa de conversão de visitante em doador. Acessos e visualizações são métricas auxiliares, não substituem a conversão real.
+
+> A meta numérica de novos doadores/mês será definida com o time responsável antes do lançamento.
+
+---
+
+## Vídeo do projeto
+
+Vídeo de apresentação da iniciativa SouJunior Apoia.se, com uma visão geral do projeto e de sua proposta de impacto:
+
+[Assistir ao vídeo no YouTube](https://www.youtube.com/watch?v=busH8_XXO9c)
+
+---
 
 ## Escopo funcional
 
-A landing page deve comunicar o propósito da iniciativa rapidamente, gerar
-confiança e incentivar a doação. A estrutura prevista no escopo inclui:
+A página deve comunicar o propósito da iniciativa rapidamente, gerar confiança e incentivar a doação. Estrutura prevista:
 
-- hero com mensagem de impacto e CTA principal **"Doar agora"**;
-- seção sobre o problema do acesso de jovens à tecnologia;
-- explicação de como a iniciativa transforma a doação em impacto;
-- prova social com números, depoimentos e parceiros;
-- explicação tangível de como a doação é utilizada;
-- rodapé institucional com CNPJ, contatos e redes sociais.
+1. **Hero** — mensagem de impacto + CTA principal **"Doar agora"**;
+2. **O problema** — acesso de jovens à tecnologia;
+3. **Como a doação vira impacto** — explicação da transformação gerada;
+4. **Prova social** — números, depoimentos e parceiros;
+5. **Uso da doação** — explicação tangível de onde o dinheiro vai;
+6. **Rodapé institucional** — CNPJ, contatos e redes sociais.
 
-O CTA principal deve aparecer no hero e ser repetido ao longo da página. Para
-visitantes que ainda não estão prontos para doar, também está previsto um CTA
-secundário, como **"Conhecer o programa"** ou **"Receber novidades"**.
+O CTA principal aparece no hero e se repete ao longo da página. Para visitantes que ainda não estão prontos para doar, há um CTA secundário (ex.: **"Conhecer o programa"** ou **"Receber novidades"**).
 
-## Métrica de sucesso [ATUALIZAR PÓS-DESENVOLVIMENTO]
+**Critérios de aceite:**
 
-A métrica principal do projeto é a taxa de conversão de visitante em doador.
-Visualizações e acessos são métricas auxiliares e não substituem a conversão
-real. A meta numérica de novos doadores por mês ainda deve ser definida com o
-time responsável antes do lançamento. Após a definição, registrar aqui a meta
-adotada e, quando disponível, o resultado medido.
+- o visitante entende o propósito da iniciativa em até 5 segundos no hero;
+- o CTA de doação é visível sem exigir rolagem completa;
+- o redirecionamento para a página da SouJunior no Apoia.se funciona;
+- carregamento abaixo de 3 segundos em conexão 4G;
+- tracking de conversão ativo e testado antes do lançamento.
 
-## Tecnologias e stack
+---
 
-- [Next.js](https://nextjs.org/) `16.3.5`, com App Router;
-- [React](https://react.dev/) `19.2.8`;
-- TypeScript;
-- CSS Modules;
-- ESLint 9;
-- [Prettier](https://prettier.io/) para formatação automática de código.
+## Stack tecnológica
 
-## Estrutura do projeto
+| Tecnologia                                  | Versão   |
+| ------------------------------------------- | -------- |
+| [Next.js](https://nextjs.org/) (App Router) | `16.3.5` |
+| [React](https://react.dev/)                 | `19.2.8` |
+| TypeScript                                  | —        |
+| CSS Modules                                 | —        |
+| ESLint                                      | `9`      |
+| [Prettier](https://prettier.io/)            | —        |
 
-O projeto utiliza o **App Router** do Next.js com **colocation**: cada rota guarda seus próprios componentes em uma pasta privada `_components/`. Componentes verdadeiramente compartilhados entre rotas ficam em `src/components/`.
-
-As pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver
-código que pertença a elas. **Não criar pastas vazias.**
-
-```
-src/
-├── app/                              # Rotas do Next.js (App Router)
-│   ├── layout.tsx                    # Layout raiz
-│   ├── globals.css                   # Estilos globais
-│   └── soujunior/                    # Rota: /soujunior
-│       ├── page.tsx                  # Página da landing
-│       └── _components/              # Componentes EXCLUSIVOS da landing
-│           ├── header/
-│           │   └── header.tsx
-│           ├── hero-section/
-│           │   └── hero-section.tsx
-│           ├── about-section/
-│           │   └── about-section.tsx
-│           └── ... (demais seções)
-│
-├── components/                       # COMPONENTES GLOBAIS REUTILIZÁVEIS
-│   └── ui/                           # Elementos atômicos (Design System)
-│       ├── button/
-│       │   └── button.tsx
-│       ├── input/
-│       │   └── input.tsx
-│       └── modal/
-│           └── modal.tsx
-│
-├── lib/                              # Funções utilitárias, clientes de API, configs
-│   ├── format-currency.ts
-│   └── api-client.ts
-│
-└── types/                            # Tipos TypeScript compartilhados
-    └── donation.ts
-```
-
-**Regra de ouro:** as pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver código real que pertença a elas. **Não criar pastas vazias.**
-
-### Responsabilidade de cada diretório
-
-| Diretório                     | Responsabilidade                                     |
-| ----------------------------- | ---------------------------------------------------- |
-| `src/app/`                    | Rotas, layouts e páginas do Next.js (App Router)     |
-| `src/app/<rota>/_components/` | Componentes **específicos** de uma rota (colocation) |
-| `src/components/`             | Componentes **globais** reutilizáveis entre rotas    |
-| `src/components/ui/`          | Elementos atômicos de UI (botões, inputs, modais)    |
-| `src/lib/`                    | Funções utilitárias, clientes de API, configs        |
-| `src/types/`                  | Tipos TypeScript compartilhados entre features       |
-| `public/`                     | Arquivos estáticos (imagens, favicons, fontes)       |
-
-### Quando usar cada pasta
-
-- **Específico da página** → `src/app/<rota>/_components/`
-  Exemplo: uma `HeroSection` que só existe na landing page.
-- **Reutilizável em várias rotas** → `src/components/`
-  Exemplo: um `Button` que aparece em várias páginas.
-- **Utilitário puro** → `src/lib/`
-  Exemplo: `formatCurrency()`, `fetchDonations()`.
-
-> 💡 **Por que `_components` tem underscore?** É uma convenção oficial do Next.js (private folders). Qualquer pasta dentro de `app/` vira rota pública — a menos que comece com `_`. Isso evita URLs indesejadas como `/soujunior/_components/header`.
+---
 
 ## Pré-requisitos
 
-- Node.js 20.9.0 ou superior dentro da série 20.x
-- npm 10 ou superior
+- Node.js `24.0.0` ou superior (série `24.x`)
+- npm `11.19.0` ou superior
 
-As versões esperadas também estão declaradas no campo `engines` do
-[`package.json`](./package.json), e o arquivo `.nvmrc` indica o uso do Node.js
-20.9.0. Para quem utiliza o [nvm](https://github.com/nvm-sh/nvm), a versão pode ser
-selecionada com:
+As versões esperadas estão declaradas no `package.json` (campo `engines`) e no `.nvmrc`. Com [nvm](https://github.com/nvm-sh/nvm):
 
 ```bash
 nvm install
 nvm use
 ```
 
-Confirme as versões instaladas antes de continuar:
+Confirme as versões instaladas:
 
 ```bash
 node --version
 npm --version
 ```
 
-O primeiro comando deve indicar uma versão `20.9.0` ou superior dentro da série
-`20.x`, e o segundo, uma versão `10.x` ou superior.
+---
 
 ## Como rodar o projeto
 
-### 1. Clonar o repositório
+**1. Clonar o repositório**
 
 ```bash
 git clone https://github.com/inovacao-squad/soujunior-apoiase-landing.git
 cd soujunior-apoiase-landing
 ```
 
-Se o repositório já estiver disponível localmente, basta entrar na pasta do
-projeto.
-
-### 2. Instalar as dependências
-
-O projeto utiliza npm e inclui um `package-lock.json` para manter versões
-reprodutíveis. Execute:
+**2. Instalar dependências**
 
 ```bash
 npm install
 ```
 
-### 3. Variáveis de ambiente
+**3. Variáveis de ambiente**
 
-O projeto não utiliza variáveis de ambiente neste momento. Caso novas
-integrações sejam adicionadas, documente aqui o nome e a finalidade de cada
-variável necessária, sem incluir valores sensíveis no repositório.
+O projeto não utiliza variáveis de ambiente no momento. Caso novas integrações sejam adicionadas, documentar aqui nome e finalidade de cada variável, sem incluir valores sensíveis no repositório.
 
-### 4. Iniciar o modo de desenvolvimento
+**4. Ambiente de desenvolvimento**
 
 ```bash
 npm run dev
 ```
 
-Após iniciar o projeto, abra [http://localhost:3000/soujunior](http://localhost:3000/soujunior) no
-navegador. Para encerrar o servidor, pressione `Ctrl+C`.
+Acesse [http://localhost:3000](http://localhost:3000). Para encerrar, `Ctrl+C`.
 
-### 5. Validar o projeto
-
-Execute o lint e verifique se o código está formatado:
+**5. Validar o código**
 
 ```bash
 npm run lint
 npm run format:check
 ```
 
-### 6. Gerar e executar a versão de produção
-
-Gere o bundle otimizado e, depois, inicie o servidor de produção:
+**6. Build de produção**
 
 ```bash
 npm run build
 npm run start
 ```
 
-A aplicação ficará disponível em
-[http://localhost:3000/soujunior](http://localhost:3000/soujunior). O comando `npm run build` deve
-ser executado novamente sempre que o código for alterado antes de iniciar a
-versão de produção.
+Disponível em [http://localhost:3000](http://localhost:3000). Rode `npm run build` novamente sempre que o código for alterado.
+
+---
 
 ## Scripts disponíveis
 
-| Comando                | Finalidade                                                 |
-| ---------------------- | ---------------------------------------------------------- |
-| `npm run dev`          | inicia o servidor de desenvolvimento;                      |
-| `npm run build`        | gera o bundle otimizado para produção;                     |
-| `npm run start`        | inicia a aplicação usando o build de produção;             |
-| `npm run lint`         | executa o ESLint para verificar problemas no código;       |
-| `npm run format`       | formata o código com Prettier, reescrevendo arquivos;      |
-| `npm run format:check` | verifica se o código está formatado, sem alterar arquivos. |
+| Comando                | Finalidade                                         |
+| ---------------------- | -------------------------------------------------- |
+| `npm run dev`          | inicia o servidor de desenvolvimento               |
+| `npm run build`        | gera o bundle otimizado para produção              |
+| `npm run start`        | inicia a aplicação a partir do build de produção   |
+| `npm run lint`         | executa o ESLint                                   |
+| `npm run format`       | formata o código com Prettier (reescreve arquivos) |
+| `npm run format:check` | verifica formatação sem alterar arquivos           |
 
-Não há um script automatizado de testes ou cobertura configurado no `package.json`
-atualmente.
+> Não há script automatizado de testes/cobertura configurado no `package.json`.
 
-## Estrutura e responsabilidades
+---
 
-- `src/app/layout.tsx`: layout raiz e metadados compartilhados;
-- `src/app/globals.css`: estilos globais;
-- `src/app/soujunior/page.tsx`: página principal da landing page (rota `/soujunior`);
-- `src/app/soujunior/_components/`: componentes exclusivos da landing page (colocation);
-- `src/components/`: componentes globais reutilizáveis (criada conforme a necessidade);
-- `src/lib/`: funções utilitárias e integrações (criada conforme a necessidade);
-- `src/types/`: tipos TypeScript compartilhados (criada conforme a necessidade);
-- `public/`: imagens e demais arquivos estáticos;
-- `next.config.ts`: configuração do Next.js;
-- `TESTS.md`: roteiro de testes manuais e checklist de QA.
+## Estrutura do projeto
+
+O projeto usa **App Router** com **colocation**: cada rota guarda seus próprios componentes em `_components/`. Componentes verdadeiramente compartilhados ficam em `src/components/`.
+
+> **Regra de ouro:** `components/`, `lib/` e `types/` só existem quando há código real que pertença a elas. Não criar pastas vazias.
+
+```
+src/
+├── app/
+│   ├── layout.tsx                # Layout raiz + metadata global (SEO)
+│   ├── globals.css               # Estilos globais
+│   ├── page.tsx                  # Landing page (rota /)
+│   ├── robots.ts                 # Geração automática do robots.txt
+│   ├── sitemap.ts                # Geração automática do sitemap.xml
+│   └── _components/              # Componentes exclusivos da landing, um por seção
+│       ├── header/
+│       ├── hero-section/
+│       ├── about-section/          # Missão, narrativa e números de impacto
+│       ├── problem-section/        # O problema do acesso à tecnologia
+│       ├── transparency-section/   # Uso da doação + FAQ
+│       ├── participate-section/    # Como apoiar / CTAs
+│       ├── closing-section/        # Fechamento e reforço de marca
+│       └── footer/
+│
+├── components/                   # Componentes globais reutilizáveis
+│   ├── reveal/                   # Animações de entrada (scroll reveal)
+│   └── ui/                       # Elementos atômicos de UI
+│       ├── container/
+│       ├── section/
+│       ├── label/
+│       └── icons/                # Ícones SVG usados na landing
+│
+└── lib/
+    └── site-config.ts            # Configurações e constantes do site
+```
+
+| Diretório                     | Responsabilidade                               |
+| ----------------------------- | ---------------------------------------------- |
+| `src/app/`                    | Rotas, layouts e páginas (App Router)          |
+| `src/app/<rota>/_components/` | Componentes específicos de uma rota            |
+| `src/components/`             | Componentes globais reutilizáveis              |
+| `src/components/ui/`          | Elementos atômicos de UI                       |
+| `src/lib/`                    | Funções utilitárias, clientes de API, configs  |
+| `src/types/`                  | Tipos TypeScript compartilhados                |
+| `public/`                     | Arquivos estáticos (imagens, favicons, fontes) |
+
+**Quando usar cada pasta:**
+
+- Específico da página → `src/app/<rota>/_components/` (ex.: `HeroSection` que só existe na landing)
+- Reutilizável em várias rotas → `src/components/` (ex.: `Button` usado em várias páginas)
+- Utilitário puro → `src/lib/` (ex.: `formatCurrency()`, `fetchDonations()`)
+
+> 💡 `_components` usa underscore por convenção oficial do Next.js: qualquer pasta dentro de `app/` vira rota pública, a menos que comece com `_`. Isso evita URLs indesejadas como `/_components/header`.
+
+---
 
 ## Padrões de código
-
-### Colocation: onde colocar cada componente
-
-Cada rota guarda seus próprios componentes em `_components/`. Componentes globais ficam em `src/components/`.
-
-**Página (exemplo real do projeto):**
-
-```
-src/app/
-└── soujunior/
-    ├── page.tsx
-    └── _components/
-        ├── header/
-        │   └── header.tsx
-        └── hero-section/
-            └── hero-section.tsx
-```
-
-**Componente global (quando surgir a necessidade):**
-
-```
-src/components/
-└── ui/
-    └── button/
-        ├── button.tsx
-        └── button.module.css
-```
-
-> A pasta `_components` usa prefixo `_` para o Next.js não tratá-la como rota. O underscore é uma convenção oficial do App Router (private folders).
 
 ### Nomenclatura
 
@@ -266,8 +235,6 @@ src/components/
 | Constantes            | `camelCase`  | `const maxDonationAmount = 1000`      |
 | Tipos e interfaces    | `PascalCase` | `type Donation = { amount: number }`  |
 
-**Exemplo real:**
-
 ```tsx
 // Arquivo: hero-section.tsx
 export function HeroSection() {
@@ -275,34 +242,23 @@ export function HeroSection() {
 }
 ```
 
-> Arquivo em `kebab-case`, componente em `PascalCase`.
-
 Evite nomes como `HeroSection.tsx`, `hero_section.tsx` ou `heroSection.tsx`.
 
 ### Imports
 
-Ordem consistente:
-
-1. Módulos nativos (`react`, `next`)
-2. Bibliotecas externas
-3. Imports internos com `@/`
-4. Imports relativos
-5. Estilos
-
-**Exemplo:**
+Ordem: (1) módulos nativos → (2) bibliotecas externas → (3) imports internos com `@/` → (4) imports relativos → (5) estilos.
 
 ```tsx
 import { useState } from "react";
 import Image from "next/image";
 
-import { Header } from "@/app/soujunior/_components/header/header";
+import { Header } from "@/app/_components/header/header";
 import { formatCurrency } from "@/lib/format-currency";
 
 import styles from "./page.module.css";
 ```
 
-**Sempre use o alias `@/`** em vez de caminhos relativos longos
-(`../../../components/header`). Ele está configurado em `tsconfig.json`:
+Sempre use o alias `@/` em vez de caminhos relativos longos. Configurado em `tsconfig.json`:
 
 ```json
 "paths": { "@/*": ["./src/*"] }
@@ -310,108 +266,79 @@ import styles from "./page.module.css";
 
 ### Estilização
 
-O projeto usa **CSS Modules**:
+**CSS Modules**: cada componente tem seu `*.module.css` ao lado; classes em `camelCase` (`.header`, `.navigationItem`); `globals.css` contém apenas reset, variáveis e `body`.
 
-- Cada componente tem seu próprio `*.module.css` ao lado;
-- Classes em `camelCase`: `.header`, `.navigationItem`;
-- `globals.css` contém apenas estilos globais (reset, variáveis, `body`).
+---
 
 ## Boas práticas
 
-Princípios gerais que orientam o desenvolvimento do projeto:
+- **Evitar duplicação** — código repetido vira utilitário ou componente compartilhado.
+- **Evitar componentes gigantes** — acima de ~150 linhas ou responsabilidades demais, dividir.
+- **Evitar abstrações prematuras** — criar componente/hook/utilitário só quando houver necessidade real.
+- **Reutilizar com necessidade real** — global em `src/components/`, específico em `_components/`.
+- **Responsabilidades claras** — um propósito por arquivo.
+- **TypeScript bem tipado** — evitar `any` sem justificativa.
+- **Imports absolutos com `@/`** — evita caminhos relativos longos.
 
-- **Evitar duplicação.** Se o mesmo código aparece em dois lugares, extraia para um utilitário ou componente compartilhado.
-- **Evitar componentes gigantes.** Se um componente passa de ~150 linhas ou acumula responsabilidades demais, divida em partes menores.
-- **Evitar abstrações prematuras.** Só crie um componente, hook ou utilitário quando houver **necessidade real** — não porque "pode ser útil algum dia".
-- **Reutilizar quando houver necessidade real.** Componentes globais ficam em `src/components/`. Componentes específicos de uma rota ficam próximos dela em `_components/`.
-- **Manter responsabilidades claras.** Cada arquivo deve ter um propósito único e bem definido.
-- **Utilizar TypeScript adequadamente.** Prefira tipos explícitos nas interfaces públicas. Evite `any` sem justificativa.
-- **Preferir imports absolutos com `@/`.** Evita caminhos relativos longos e facilita mover arquivos de lugar.
-
-## Formatação de código
-
-O projeto usa [Prettier](https://prettier.io/) para padronizar a formatação.
-
-Antes de abrir um pull request, execute:
+Antes de abrir um PR:
 
 ```bash
 npm run format
+npm run lint
 ```
 
-Para verificar sem alterar arquivos:
+---
 
-```bash
-npm run format:check
+## Testes e QA
+
+Planejamento, execução manual e automação de regressão da landing page.
+
+**Cobertura:**
+
+- responsividade e UX/UI (mobile-first);
+- regras de negócio e CTAs;
+- acessibilidade (WCAG) e performance em 4G;
+- automação BDD com Robot Framework + SeleniumLibrary.
+
+**Cenários automatizados (exemplos):**
+
+| ID      | Objetivo                                                                           | Tags               |
+| ------- | ---------------------------------------------------------------------------------- | ------------------ |
+| `TC-01` | Exibição _above the fold_ no mobile (`414x896`): título e CTA visíveis sem rolagem | `mobile`, `ux`     |
+| `TC-04` | Redirecionamento do CTA para a página de campanha no Apoia.se, em nova aba         | `funcional`, `cta` |
+
+**Ferramentas:** Chrome DevTools (emulação mobile/rede 4G) · Google Lighthouse (acessibilidade e performance) · Python 3.x + Robot Framework + SeleniumLibrary · Google Chrome / ChromeDriver.
+
+**Estrutura de QA:**
+
+```
+docs/
+├── BUGS.md                              # Relatório de defeitos
+├── Plano_de_Testes_SouJunior.pdf        # Plano de testes detalhado
+├── Relatório de Inspeção de QA - SEO.pdf
+└── Relatório de Testes por Cenários.pdf # Especificação de cenários (Gherkin)
+resources/
+└── keywords.resource                    # Keywords, variáveis e seletores (BDD)
+tests/
+└── landing_page.robot                   # Casos de teste automatizados
+TESTS.md                                 # Matriz e especificações dos testes
 ```
 
-O Prettier ignora automaticamente as pastas listadas em `.prettierignore`
-(`node_modules`, `.next`, `out`, `build`, `coverage`).
-
-## Contribuição
-
-1. Crie uma branch descritiva a partir da `main`, por exemplo:
-   `feat/nova-secao` ou `fix/ajuste-responsividade`.
-2. Faça alterações pequenas e focadas.
-3. Use mensagens de commit no padrão Conventional Commits, como
-   `feat: adiciona secao de impacto` ou `docs: atualiza instrucoes`.
-4. Execute `npm run lint` e `npm run format:check` antes de abrir o PR.
-5. Abra um pull request descrevendo o problema, a solução e os testes
-   realizados.
-
-## Atenção — Next.js 16
-
-O projeto usa Next.js 16.3.5. Há mudanças importantes em relação às versões
-anteriores:
-
-- `params`, `searchParams`, `cookies()` e `headers()` agora são **assíncronos**.
-  Sempre use `await`;
-- `middleware.ts` foi **depreciado** em favor de `proxy.ts`;
-- Rotas paralelas exigem `default.tsx` explícito.
-
-**Não é necessário migrar nada agora.** O time só precisa estar ciente dessas
-mudanças ao escrever código novo.
-
-## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
-
-O roteiro de testes manuais e checklist de qualidade está em
-[TESTS.md](./TESTS.md). Ele inclui:
-
-- testes de responsividade e UX/UI;
-- testes funcionais e regras de negócio;
-- testes de acessibilidade e performance;
-- cenários para validar CTA, links e comportamento mobile.
-
-Para a validação automatizada disponível, execute:
+Validação automatizada disponível:
 
 ```bash
 npm run lint
 ```
 
-Não existe uma meta de cobertura automatizada definida para o projeto.
-Após a execução dos testes, atualizar esta seção com o status dos cenários
-manuais e os resultados relevantes de acessibilidade, performance e conversão.
+> Não existe meta de cobertura automatizada definida para o projeto. Após a execução dos testes, atualizar esta seção com o status dos cenários manuais e os resultados de acessibilidade, performance e conversão.
 
-## Critérios de aceite do escopo [ATUALIZAR PÓS-DESENVOLVIMENTO]
+---
 
-A página será considerada pronta quando:
+## 📊 Google Tag Manager
 
-- o visitante entender o propósito da iniciativa em até 5 segundos no hero;
-- o CTA de doação estiver visível sem exigir a rolagem completa da página;
-- o redirecionamento para a página da SouJunior no Apoia.se funcionar;
-- o carregamento ficar abaixo de 3 segundos em uma conexão 4G;
-- o tracking de conversão estiver ativo e testado antes do lançamento.
+Este projeto possui integração com o **Google Tag Manager (GTM)** para gerenciamento centralizado de tags, eventos e analytics.
 
-O tracking deve medir a conversão de visitante em doador. A ferramenta e os
-identificadores utilizados devem ser documentados quando forem definidos.
-Após a validação, registrar aqui o status de cada critério e a data da
-verificação.
-
-## Deploy [ATUALIZAR PÓS-DESENVOLVIMENTO]
-
-A hospedagem prevista no escopo é a [Vercel](https://vercel.com/), utilizando o
-preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
-automático gerado pela Vercel; um domínio próprio poderá ser configurado
-posteriormente.
+---
 
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
@@ -421,75 +348,33 @@ O objetivo principal é garantir a qualidade da experiência do usuário, a resp
 
 ---
 
-## 📌 Organização do Trabalho (3 Tasks do Projeto)
+## Contribuição
 
-Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas principais (*Tasks*):
-
-### **Task 1: Planejamento & Mapeamento de Casos de Teste Manuais**
-- Elaboração do checklist de testes cobrindo **Responsividade (Mobile-First)**, **Regras de Negócio/CTAs** e **Testes Não-Funcionais** (Acessibilidade WCAG e Performance em 4G).
-- Criação e estruturação do plano e cenários de testes em formato PDF e Markdown.
-
-### **Task 2: Execução Manual, Evidências e Reporte de Defeitos**
-- Execução dos cenários em ambiente móvel e desktop.
-- Coleta de evidências visuais dos testes aprovados e reprovados.
-- Documentação e registro dos defeitos (*Bug Reports*) encontrados na homologação.
-
-### **Task 3: Automação Web com Robot Framework**
-- Mapeamento dos seletores (CSS e XPath) dos elementos da página.
-- Automação BDD (*Behavior-Driven Development*) para verificação do layout móvel (*abovegit add . the fold*) e redirecionamento de CTA.
-- Geração de evidências fotográficas (`.png`) anexadas automaticamente aos relatórios HTML.
+1. Crie uma branch descritiva a partir da `main` (ex.: `feat/nova-secao`, `fix/ajuste-responsividade`).
+2. Faça alterações pequenas e focadas.
+3. Use [Conventional Commits](https://www.conventionalcommits.org/) (ex.: `feat: adiciona secao de impacto`, `docs: atualiza instrucoes`).
+4. Execute `npm run lint` e `npm run format:check` antes de abrir o PR.
+5. Abra um pull request descrevendo o problema, a solução e os testes realizados.
 
 ---
 
-## 🤖 Cenários de Teste Automatizados (BDD)
+## Equipe
 
-* **`TC-01 - Exibição Above the Fold no Mobile`**
-  * **Objetivo:** Valida se o título principal e o botão de doação/apoio estão visíveis em dispositivos móveis (`414x896`) sem necessidade de rolagem inicial.
-  * **Tags:** `mobile`, `ux`
+Squad de Inovação — Hackathon SouJunior.
 
-* **`TC-04 - Redirecionamento para o Apoia.se`**
-  * **Objetivo:** Valida se o clique no botão CTA redireciona o usuário para a página de campanha do Apoia.se em uma nova aba do navegador.
-  * **Tags:** `funcional`, `cta`
-
----
-
-## 🛠️ Ferramentas & Tecnologias Utilizadas
-
-- **Testes Manuais & UX/UI:** Chrome DevTools (Emulação Mobile/Rede 4G)
-- **Documentação de QA:** Markdown e PDF
-- **Acessibilidade & Performance:** WCAG e Google Lighthouse
-- **Automação Web:** Python 3.x + Robot Framework + SeleniumLibrary
-- **Navegador de Testes:** Google Chrome / ChromeDriver
+| Nome             | Papel          | Nível  | LinkedIn                                                                                                      |
+| ---------------- | -------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| Allan Fortes     | Dev            | Mentor | [linkedin.com/in/allan-fortes-barbosa-b40520211](https://www.linkedin.com/in/allan-fortes-barbosa-b40520211/) |
+| Gabriel Barba    | Dev            | Júnior | [linkedin.com/in/gabriel--barba](https://www.linkedin.com/in/gabriel--barba/)                                 |
+| Simone Blasse    | QA             | Júnior | [linkedin.com/in/simoneblasse](https://www.linkedin.com/in/simoneblasse)                                      |
+| Rodrigo Marques  | PO/PM          | Júnior | [linkedin.com/in/rodrigo-marques7](https://www.linkedin.com/in/rodrigo-marques7/)                             |
+| Dênis Santos     | Dev            | Júnior | [linkedin.com/in/denisilva-s](https://www.linkedin.com/in/denisilva-s/)                                       |
+| Michael Ribeiro  | Dev            | Júnior | [linkedin.com/in/michael-ribeiro-br](https://linkedin.com/in/michael-ribeiro-br/)                             |
+| Simara Santos    | Dev            | Júnior | [linkedin.com/in/simara-santos-silva-bb5732247](https://www.linkedin.com/in/simara-santos-silva-bb5732247/)   |
+| Yasmin Beviláqua | UX/UI Designer | Júnior | [linkedin.com/in/yasmin-bevilaqua](https://www.linkedin.com/in/yasmin-bevilaqua/)                             |
 
 ---
-
-## 📁 Estrutura do Projeto
-
-```text
-soujunior-apoiase-landing/
-├── .next/                                      # Build do Next.js
-├── docs/
-│   ├── BUGS.md                                  # Relatório de Defeitos Mapeados
-│   ├── Plano_de_Testes_SouJunior.pdf            # Plano de Testes Detalhado (PDF)
-│   ├── Relatório de Inspeção de QA - SEO...pdf  # Relatório de SEO e Inspeção
-│   └── Relatório de Testes por Cenários...pdf   # Especificação de Cenários Gherkin
-├── node_modules/                               # Dependências do projeto
-├── resources/
-│   └── keywords.resource                        # Keywords, variáveis e seletores (BDD)
-├── results/                                     # Logs da execução (se configurado)
-├── tests/
-│   └── landing_page.robot                       # Casos de Teste Automatizados
-├── evidencia_apoiase.png                        # Evidência fotográfica do teste
-├── evidencia_mobile.png                         # Evidência fotográfica do teste
-├── log.html                                     # Relatório detalhado da execução
-├── report.html                                  # Resumo estatístico da execução
-├── TESTS.md                                     # Matriz e especificações dos testes
-└── README.md                                    # Documentação principal do repositório
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](./LICENSE).
-
-# soujunior-apoiase-landing
-
-Projeto do Hackathon SouJunior: landing page de captação de apoiadores via Apoia.se
+Distribuído sob a licença [MIT](./LICENSE).

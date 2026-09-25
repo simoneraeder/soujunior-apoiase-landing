@@ -1,0 +1,12 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  display: block;
+  height: 1.7rem;
+  width: auto;
+  object-fit: contain;
+}

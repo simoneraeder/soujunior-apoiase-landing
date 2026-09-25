@@ -1,0 +1,64 @@
+.marqueeWrap {
+  overflow-x: clip;
+  width: 100%;
+}
+
+.marquee {
+  background: var(--blue);
+  color: #fff;
+  padding: 0.9rem 0;
+  overflow: hidden;
+  transform: rotate(-1deg);
+  margin: 0 -2vw;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .marquee {
+    padding: 1.25rem 0;
+  }
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 46s linear infinite;
+}
+
+.marquee:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0 1.1rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.8vw, 1.3rem);
+  letter-spacing: -0.03em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.marqueeItem::after {
+  content: "✦";
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}

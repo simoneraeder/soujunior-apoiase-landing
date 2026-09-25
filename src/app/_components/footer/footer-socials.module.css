@@ -1,0 +1,48 @@
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .socials {
+    gap: 1rem;
+  }
+}
+
+.link {
+  display: inline-grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  transition:
+    color 0.3s var(--ease),
+    transform 0.3s var(--ease);
+  padding: 0.15rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link:hover {
+    transform: none;
+  }
+}

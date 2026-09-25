@@ -1,0 +1,67 @@
+.aboutQuote {
+  position: relative;
+  margin-top: 0.3rem;
+  padding: 1.2rem 1.2rem 1.2rem 1.75rem;
+  background: var(--navy);
+  color: var(--paper);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 6px 8px 0 rgba(10, 20, 40, 0.15);
+}
+
+.aboutQuote::before {
+  content: '"';
+  position: absolute;
+  top: -0.85rem;
+  left: 0.85rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--blue-2);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.aboutQuoteText {
+  position: relative;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: rgba(245, 242, 233, 0.92);
+  max-width: 38rem;
+  margin: 0;
+}
+
+.aboutQuoteStrong {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.aboutQuoteHighlight {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.aboutQuoteSignature {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 233, 0.55);
+}
+
+.aboutQuoteSignature::before {
+  content: "";
+  width: 1.4rem;
+  height: 1.5px;
+  background: var(--blue-2);
+  flex-shrink: 0;
+}

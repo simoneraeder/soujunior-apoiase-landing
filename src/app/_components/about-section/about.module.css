@@ -1,0 +1,17 @@
+.about {
+  padding-bottom: clamp(0.75rem, 2.5vw, 2rem);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 980px) {
+  .aboutGrid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}

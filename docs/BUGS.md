@@ -3,17 +3,17 @@
 **Projeto:** Landing Page Apoia.se — SouJunior  
 **Responsável pelo Teste:** Simone Blasse  
 **Ambiente:** Mobile (Emulação iPhone SE — 375px) / Desktop  
-**Data:** 20/09/2026  
+**Data:** 20/09/2026
 
 ---
 
 ## 📊 Resumo de Defeitos Encontrados
 
-| ID | Bug / Inconformidade | Seção / Componente | Gravidade | Status |
-| :--- | :--- | :--- | :---: | :---: |
-| **BUG-01 (TC-02)** | Quebra de layout e texto cortado no mobile | Layout Geral / Cards Inferiores | Média | Aberto |
-| **BUG-02 (TC-05)** | Botão "Conhecer a SouJunior" inativo ao clique | CTA Secundário / Banner | Alta | Aberto |
-| **BUG-03 (TC-11)** | Tempo de carregamento superior a 3,0s em 4G | Performance Geral | Média | Aberto |
+| ID                 | Bug / Inconformidade                           | Seção / Componente              | Gravidade | Status |
+| :----------------- | :--------------------------------------------- | :------------------------------ | :-------: | :----: |
+| **BUG-01 (TC-02)** | Quebra de layout e texto cortado no mobile     | Layout Geral / Cards Inferiores |   Média   | Aberto |
+| **BUG-02 (TC-05)** | Botão "Conhecer a SouJunior" inativo ao clique | CTA Secundário / Banner         |   Alta    | Aberto |
+| **BUG-03 (TC-11)** | Tempo de carregamento superior a 3,0s em 4G    | Performance Geral               |   Média   | Aberto |
 
 ---
 
@@ -21,11 +21,11 @@
 
 ### 🔴 BUG-01 [TC-02]: Integridade Visual e Ausência de Rolagem Lateral no Mobile
 
-* **Componente Afetado:** Layout Geral / Cards Inferiores
-* **Severidade:** Média (Prejudica a experiência do usuário e a leitura)
-* **Ambiente:** Mobile (iPhone SE — 375px)
+- **Componente Afetado:** Layout Geral / Cards Inferiores
+- **Severidade:** Média (Prejudica a experiência do usuário e a leitura)
+- **Ambiente:** Mobile (iPhone SE — 375px)
 
-```gherkin
+````gherkin
 Cenário: Integridade visual e ausência de barra de rolagem lateral no mobile
   Dado que o usuário está navegando no site em uma tela de dispositivo móvel (375px — iPhone SE)
   Quando ele realiza a rolagem vertical para visualizar as seções e cards do site
@@ -61,3 +61,4 @@ Cenário: Tempo de carregamento da página em conexão 4G
   Resultado Esperado: Carregamento e renderização completa em até 3,0 segundos.
 Resultado Real: O tempo de carregamento total da página excedeu o limite máximo estipulado de 3,0 segundos.
 Status: 🔴 [X] FAIL
+````
